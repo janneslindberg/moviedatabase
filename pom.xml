@@ -44,6 +44,11 @@
       <groupId>org.springframework.boot</groupId>  
       <artifactId>spring-boot-starter-web</artifactId> 
     </dependency>  
+    <dependency>
+		<groupId>com.microsoft.sqlserver</groupId>
+		<artifactId>mssql-jdbc</artifactId>
+		<scope>runtime</scope>
+	</dependency>
     <dependency> 
       <groupId>com.mysql</groupId>  
       <artifactId>mysql-connector-j</artifactId>  
@@ -101,8 +106,8 @@
         <configuration>
           <schemaVersion>v2</schemaVersion>
           <subscriptionId>20887c33-b599-4b67-82dd-1f2bd43f8754</subscriptionId>
-          <resourceGroup>movie-1675756363550-rg</resourceGroup>
-          <appName>movie-1675756363550</appName>
+          <resourceGroup>Janne_test_resource_group</resourceGroup>
+          <appName>movie-database</appName>
           <pricingTier>F1</pricingTier>
           <region>centralus</region>
           <runtime>
