@@ -1,5 +1,6 @@
 package my.moviedb.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -15,8 +16,8 @@ import my.moviedb.repository.MovieRepository;
 @Service
 public class MovieService {
 
-	@Autowired
-	private MovieRepository movieRepository;
+//	@Autowired
+//	private MovieRepository movieRepository;
 
 	
 	private Logger logger = LoggerFactory.getLogger(MovieService.class);
@@ -27,19 +28,26 @@ public class MovieService {
 	
 	
 	public List<Movie> getAllMovies(){
-		List<Movie> movies = movieRepository.findAll();
+//		List<Movie> movies = movieRepository.findAll();
+		Movie movie = new Movie();
+		movie.setName("My test movie");
+		movie.setYear(2023);
+		List<Movie> movies = new ArrayList<>();
+		movies.add(movie);
 		logger.info("Got movies:" + movies);
 		return movies;
 	}
 	public List<Movie> getSearchMovies(String name){
-		List<Movie> movies = movieRepository.searchMoviesByName(name);
+//		List<Movie> movies = movieRepository.searchMoviesByName(name);
+		List<Movie> movies = new ArrayList<>();
 		logger.info("Got movies:" + movies);
 		return movies;
 	}
 	public Movie saveMovie(Movie movie) {
-		movie = updateParentValues(movie);
+//		movie = updateParentValues(movie);
 		logger.info("Saving movie: " + movie);
-		return movieRepository.save(movie);
+//		return movieRepository.save(movie);
+		return new Movie();	
 	}
 	
 	private Movie updateParentValues(Movie newMovie) {

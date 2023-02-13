@@ -2,12 +2,12 @@ package my.moviedb.model;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+//import javax.persistence.CascadeType;
+//import javax.persistence.Entity;
+//import javax.persistence.GeneratedValue;
+//import javax.persistence.Id;
+//import javax.persistence.OneToMany;
+//import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
@@ -21,22 +21,18 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 "director",
 "synopsis"
 })
-@Entity
 public class Movie {
 
-	private @Id @GeneratedValue long movieId;
+	private long movieId;
 	private String name;
 	private int year;
 
-	@OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
 	private List<Genre> genres;
 	private int ageLimit;
 	private int rating;
 	
-	@OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
 	private List<Actor> actors;
 	
-	@OneToOne(mappedBy = "movie", cascade = CascadeType.ALL)
 	private Director director;
 	private String synopsis;
 
