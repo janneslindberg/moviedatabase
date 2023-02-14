@@ -17,41 +17,33 @@ import my.moviedb.repository.MovieRepository;
 @Service
 public class MovieService {
 
-//	@Autowired
-//	private MovieRepository movieRepository;
+	@Autowired
+	private MovieRepository movieRepository;
 
 	@Value("${movie.test.name}")
 	private String movieName;
 	
 	private Logger logger = LoggerFactory.getLogger(MovieService.class);
 	
-//	public MovieService(MovieRepository movieRepository) {
-//		this.movieRepository = movieRepository;
-//	}
+	public MovieService(MovieRepository movieRepository) {
+		this.movieRepository = movieRepository;
+	}
 	
 	
 	public List<Movie> getAllMovies(){
-//		List<Movie> movies = movieRepository.findAll();
-		Movie movie = new Movie();
-//		movie.setName("My test movie");
-		movie.setName(movieName);
-		movie.setYear(2023);
-		List<Movie> movies = new ArrayList<>();
-		movies.add(movie);
+		List<Movie> movies = movieRepository.findAll();
 		logger.info("Got movies:" + movies);
 		return movies;
 	}
 	public List<Movie> getSearchMovies(String name){
-//		List<Movie> movies = movieRepository.searchMoviesByName(name);
-		List<Movie> movies = new ArrayList<>();
+		List<Movie> movies = movieRepository.searchMoviesByName(name);
 		logger.info("Got movies:" + movies);
 		return movies;
 	}
 	public Movie saveMovie(Movie movie) {
-//		movie = updateParentValues(movie);
+		movie = updateParentValues(movie);
 		logger.info("Saving movie: " + movie);
-//		return movieRepository.save(movie);
-		return new Movie();	
+		return movieRepository.save(movie);
 	}
 	
 	private Movie updateParentValues(Movie newMovie) {
