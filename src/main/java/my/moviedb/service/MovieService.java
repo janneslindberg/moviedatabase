@@ -6,6 +6,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import my.moviedb.model.Actor;
@@ -19,6 +20,8 @@ public class MovieService {
 //	@Autowired
 //	private MovieRepository movieRepository;
 
+	@Value("${movie.test.name}")
+	private String movieName;
 	
 	private Logger logger = LoggerFactory.getLogger(MovieService.class);
 	
@@ -30,7 +33,8 @@ public class MovieService {
 	public List<Movie> getAllMovies(){
 //		List<Movie> movies = movieRepository.findAll();
 		Movie movie = new Movie();
-		movie.setName("My test movie");
+//		movie.setName("My test movie");
+		movie.setName(movieName);
 		movie.setYear(2023);
 		List<Movie> movies = new ArrayList<>();
 		movies.add(movie);
