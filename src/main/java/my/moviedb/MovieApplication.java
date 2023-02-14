@@ -10,7 +10,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-//import my.moviedb.repository.MovieRepository;
+import my.moviedb.repository.MovieRepository;
 
 @SpringBootApplication
 public class MovieApplication {
@@ -21,8 +21,7 @@ public class MovieApplication {
 	}
 
 	@Bean
-//	public CommandLineRunner demo(MovieRepository repository) {
-	public CommandLineRunner demo() {
+	public CommandLineRunner demo(MovieRepository repository) {
 	    return (args) -> {
 //	      // save a few movies
 	    	

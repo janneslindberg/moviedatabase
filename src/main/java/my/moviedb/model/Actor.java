@@ -1,37 +1,28 @@
 package my.moviedb.model;
 
-
-//import javax.persistence.Entity;
-//import javax.persistence.GeneratedValue;
-//import javax.persistence.Id;
-//import javax.persistence.JoinColumn;
-//import javax.persistence.ManyToOne;
-//import javax.persistence.Table;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-
-
-
-
-
-
-
-
-
-
-
-
 
 @JsonPropertyOrder({
 "firstName",
 "lastName"
 })
+@Entity
+@Table(name = "actors")
 public class Actor {
 
-	private long id;
+	private @Id @GeneratedValue long id;
 	
 	@JsonIgnore
+	@ManyToOne()
+	@JoinColumn(name = "movie_id")
 	private Movie movie;
 
 	public Movie getMovie() {
